@@ -1,0 +1,17 @@
+page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 20rpx;
+  background-color: #fff;
+}
+
+.add-input {
+  width: auto;
+  border-bottom: 1rpx solid #ced0d2;
+}
+
+.add-submit {
+  margin: 40rpx 0 20rpx;
+}

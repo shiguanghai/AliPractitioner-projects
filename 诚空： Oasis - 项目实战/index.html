@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oasis Engine</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      position: fixed;
+    }
+  </style>
+</head>
+<body>
+  <!-- 触发飞船发射按钮 -->
+  <button id="ship-start" style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; display: inline-block;font-size: 16px;margin: 4px 2px;position: fixed;">发射飞船</button>
+  <button id="ship-restart" style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; display: inline-block;font-size: 16px;margin: 4px 150px;position: fixed;">重置游戏</button>
+  <input id="grade" style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; display: inline-block;font-size: 16px;margin: 4px 300px;position: fixed; width: 15px; height: 21px;" value="0" readonly=“readonly”></input>
+  <canvas style="width: 100vw; height: 100vh;" id="oasis-demo"></canvas>
+  <!-- demo -->
+  <!-- <script src="./src/demo/"></script> -->
+  <!-- 项目实战 -->
+  <script src="./src/index.ts"></script>
+</body>
+</html>

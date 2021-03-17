@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G6-demo</title>
+</head>
+
+<body>
+  <div id="mountNode"></div>
+
+  <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g6-3.7.1/dist/g6.min.js"></script>
+
+  <script>
+    const data = {
+      nodes: [
+        {
+          id: 'node1',
+          x: 200,
+          y: 200,
+        },
+        {
+          id: 'node2',
+          x: 400,
+          y: 200,
+        },
+        {
+          id: 'node3',
+          x: 100,
+          y: 400,
+        },
+        {
+          id: 'node4',
+          x: 300,
+          y: 400,
+        },
+      ],
+      edges: [
+        {
+          source: 'node1',
+          target: 'node2',
+        },
+        {
+          source: 'node2',
+          target: 'node4',
+        },
+        {
+          source: 'node1',
+          target: 'node3',
+        },
+        {
+          source: 'node3',
+          target: 'node4',
+        },
+      ]
+    }
+
+    const graph = new G6.Graph({
+      container: 'mountNode',
+      width: 1200,
+      height: 600,
+      modes: {
+        default: ['drag-canvas', 'zoom-canvas', 'drag-node'], // 允许拖拽画布、放缩画布、拖拽节点
+      },
+      nodeStateStyles: {
+        // 鼠标 hover 上节点，即 hover 状态为 true 时的样式
+        hover: {
+          fill: 'lightsteelblue',
+        },
+        // 鼠标点击节点，即 click 状态为 true 时的样式
+        click: {
+          stroke: '#000',
+          lineWidth: 3,
+        },
+      },
+      // 边不同状态下的样式集合
+      edgeStateStyles: {
+        // 鼠标点击边，即 click 状态为 true 时的样式
+        click: {
+          stroke: 'steelblue',
+        },
+      },
+    });
+
+    // 鼠标进入节点
+    graph.on('node:mouseenter', (e) => {
+      const nodeItem = e.item;
+      graph.setItemState(nodeItem, 'hover', true)
+    });
+
+    // 鼠标离开节点
+    graph.on('node:mouseleave', (e) => {
+      const nodeItem = e.item
+      graph.setItemState(nodeItem, 'hover', false);
+    });
+
+    // 点击节点
+    graph.on('node:click', (e) => {
+      // 先将所有当前是 click 状态的节点置为非 click 状态
+      const clickNodes = graph.findAllByState('node', 'click');
+      clickNodes.forEach((cn) => {
+        graph.setItemState(cn, 'click', false);
+      });
+      const nodeItem = e.item;
+      graph.setItemState(nodeItem, 'click', true);
+    });
+
+    // 点击边
+    graph.on('edge:click', (e) => {
+      const clickEdges = graph.findAllByState('edge', 'click');
+      clickEdges.forEach((ce) => {
+        graph.setItemState(ce, 'click', false);
+      });
+      const edgeItem = e.item;
+      graph.setItemState(edgeItem, 'click', true);
+    });
+
+    graph.data(data);
+    graph.render();
+  </script>
+</body>
+
+</html>

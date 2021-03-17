@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "TODO List",
+  "usingComponents": {
+    "todo-item": "../../components/item/item"
+  }
+}

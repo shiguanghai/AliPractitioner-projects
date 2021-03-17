@@ -1,0 +1,13 @@
+.todo {
+  margin: 0 20rpx;
+}
+
+.todo-desc {
+  height: 84rpx;
+  margin-bottom: 20rpx;
+  line-height: 84rpx;
+}
+
+.todo-add {
+  margin-top: 40rpx;
+}

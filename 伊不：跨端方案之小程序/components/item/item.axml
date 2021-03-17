@@ -1,0 +1,4 @@
+<view class="todo-item {{checked ? 'checked' : ''}}" onLongTap="handleLongTap">
+  <view class="todo-item-checkbox" role="checkbox" aria-checked="{{checked}}"></view>
+  <view class="todo-item-text">{{text}}</view>
+</view>

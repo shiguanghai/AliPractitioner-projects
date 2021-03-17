@@ -1,0 +1,3 @@
+<input class="add-input" onInput="handleInputInput" placeholder="What to do next?" />
+<button class="add-submit" type="primary" onTap="handleButtonTap">Add</button>
+<button onTap="handleCancel">Cancel</button>

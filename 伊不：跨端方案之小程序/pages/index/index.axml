@@ -1,0 +1,14 @@
+<view class="todo">
+  <view class="todo-desc">Long tap will show action sheet.</view>
+  <view class="todo-list">
+    <todo-item
+      a:for="{{todo}}"
+      a:key="text"
+      text="{{item.text}}"
+      checked="{{item.checked}}"
+      id="{{index}}"
+      onLongTap="handleItemLongTap"
+    />
+  </view>
+  <button class="todo-add" type="primary" onTap="handleButtonTap">Add TODO</button>
+</view>

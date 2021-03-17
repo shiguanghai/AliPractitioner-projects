@@ -1,0 +1,10 @@
+@import '~antd/dist/antd.css';
+
+#root {
+  margin: 10px auto;
+  text-align: center;
+}
+/* #root .ant-form-i */
+/* #root input {
+  width: 50vw;
+} */
